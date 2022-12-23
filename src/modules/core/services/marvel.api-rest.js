@@ -8,6 +8,10 @@ const credentials = {
   apikey: process.env.REACT_APP_PUBLIC_KEY
 };
 
+const orden = {
+  orderBy: '-name'
+};
+
 export async function getAllPaginated(
   domain,
   page,
@@ -27,6 +31,7 @@ export async function getAll(domain, { mappedBy = defaultMapper, queryParams = {
   return getAndMap(`${BASE_URL}${domain}`, {
     mappedBy,
     queryParams: {
+      ...orden,
       ...queryParams,
       ...credentials
     }

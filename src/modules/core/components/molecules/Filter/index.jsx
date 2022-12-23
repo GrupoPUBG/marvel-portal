@@ -24,6 +24,9 @@ export default function Filter({ totalItems }) {
 
         <div className="container">
           <div className="row">
+            <div className="contenedor_sort">
+              <h4 className="total">{totalItems} RESULTS</h4>
+            </div>
             <div className="col">
               <div className="contenedor_totalitems">
                 <h4 className="total">{totalItems} RESULTS</h4>
