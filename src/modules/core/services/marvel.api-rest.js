@@ -7,15 +7,18 @@ const credentials = {
   apikey: '96f27c2367a6c82e9704f4522ff243f7'
 };
 
-
+// const orden = {
+//   orderBy: '-name'
+// };
 
 export async function getAllPaginated(
   domain,
   page,
   nameStarts,
+  orden,
   { mappedBy = defaultMapper, queryParams = {}, itemsPerPage = PAGENATE_BY }
 ) {
-  return getAll(domain, nameStarts, {
+  return getAll(domain, nameStarts, orden, {
     mappedBy,
     queryParams: {
       ...queryParams,
@@ -25,11 +28,12 @@ export async function getAllPaginated(
   });
 }
 
-export async function getAll(domain, nameStarts, { mappedBy = defaultMapper, queryParams = {} }) {
+export async function getAll(domain, nameStarts, orden, { mappedBy = defaultMapper, queryParams = {} }) {
   return getAndMap(`${BASE_URL}${domain}`, {
     mappedBy,
     queryParams: {
       ...nameStarts,
+      ...orden,
       ...queryParams,
       ...credentials
     }
