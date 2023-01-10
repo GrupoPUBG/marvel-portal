@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 CharacterCard.propTypes = {
   image: PropTypes.string,
   name: PropTypes.string,
+  alias: PropTypes.string,
   isSkeleton: PropTypes.bool
 };
 
@@ -12,7 +13,7 @@ function Fecha() {
   return fecha;
 }
 
-export default function CharacterCard({ image, name, isSkeleton }) {
+export default function CharacterCard({ image, name, alias, isSkeleton }) {
   return (
     <div className="mvl-character-card" data-is-skeleton={isSkeleton}>
       <div className="mvl-character-card__image-container">
@@ -21,6 +22,7 @@ export default function CharacterCard({ image, name, isSkeleton }) {
       <div className="mvl-character-card__body">
         <h5 className="u-no-margin">{name}</h5>
         <h5 className="mvl-character-card__data">{Fecha()}</h5>
+        <h5 className="u-no-margin">{alias}</h5>
       </div>
     </div>
   );

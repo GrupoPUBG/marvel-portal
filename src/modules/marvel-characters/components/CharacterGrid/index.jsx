@@ -157,7 +157,7 @@ function CharacterGrid({ characters, isLoading, itemsPerPage }) {
   }
 
   return characters.map(({ name, image }, index) => (
-    <CharacterCard name={name} image={image} key={index} isSkeleton={isLoading} />
+    <CharacterCard name={name.split(/[(]|[)]/)[0]} alias= {name.split(/[(]|[)]/)[1]} image={image} key={index} isSkeleton={isLoading} />
   ));
 }
 
