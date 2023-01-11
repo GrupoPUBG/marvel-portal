@@ -16,6 +16,9 @@ export function CharacterPage() {
   const [modalF, setModalF] = useState(false);
   const [select, setselect] = useState('A-Z');
 
+  const [closeModal, setCloseModal] = useState(false);
+
+
 const modalFcambio = (a) => {
     setModalF(a);
 };
@@ -35,6 +38,7 @@ const handleKeyDown = (event) => {
   if (event.key === 'Enter') {
     setUpdated(search);
     setFilterEnter(true);
+    setCloseModal(false);
   }
 };
 useEffect(() => {
@@ -73,7 +77,7 @@ function Peticion() {
 }
 function Peticion2() {
   if (search.length >= 3) {
-    return <ModalAuto search={search} modalAuto={modalAuto} />;
+    return <ModalAuto search={search} modalAuto={modalAuto} closeModal={closeModal}/>;
   }
 }
 return (
@@ -98,6 +102,8 @@ return (
                 value={search}
                 onChange={searcher}
                 onKeyDown={handleKeyDown}
+                onBlur={() => setCloseModal(false)}
+                onClick={() => setCloseModal(true)}
                 id="filter"
                 className="mvl-character-gri-input"
                 type="text"
