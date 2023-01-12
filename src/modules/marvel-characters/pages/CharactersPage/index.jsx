@@ -102,8 +102,8 @@ return (
                 value={search}
                 onChange={searcher}
                 onKeyDown={handleKeyDown}
-                onBlur={() => setCloseModalA(false)}
-                onClick={() => setCloseModalA(true)}
+                // onBlur={ () => setCloseModalA(false)}
+                onClick={ () => setCloseModalA(true)}
                 id="filter"
                 className="mvl-character-gri-input"
                 type="text"

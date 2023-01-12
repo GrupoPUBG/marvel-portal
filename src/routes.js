@@ -6,7 +6,7 @@ import { CharacterPage } from '@/modules/marvel-characters/pages/CharactersPage'
 const AppRoutes = () => (
   <Routes>
     <Route exact path="/" element={<CharacterPage />} />
-    <Route element={<NotFoundPage404 />} />
+    <Route exact path="*" element={<NotFoundPage404 />} />
   </Routes>
 );
 
