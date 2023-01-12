@@ -5,10 +5,10 @@ import { useState } from 'react';
 ModalAuto.propTypes = {
   search: PropTypes.string,
   modalAuto: PropTypes.func,
-  closeModal: PropTypes.bool
+  closeModalA: PropTypes.bool
 };
 
-function ModalAuto({ search, modalAuto, closeModal }) {
+function ModalAuto({ search, modalAuto, closeModalA }) {
   const [estado1, setestado1] = useState(true);
   const openModalAuto1 = () => {
     if (estado1 == true) {
@@ -20,14 +20,9 @@ function ModalAuto({ search, modalAuto, closeModal }) {
 
   const name = ['hola', 'buenos dias'];
   console.log(name);
-  function modalAutoModal(a) {
-    if (search.length > 0) {
-      modalAuto(a);
-    }
-  }
 
   return (
-      <div className={`modalAuto ${closeModal && 'modalAuto-open'}`}>
+      <div className={`modalAuto ${closeModalA && 'modalAuto-open'}`}>
         <ul className="listaM">
           {name.filter((item) =>
             item.toLowerCase().includes(search.trim().toLowerCase()))
@@ -37,7 +32,7 @@ function ModalAuto({ search, modalAuto, closeModal }) {
               <li
                 className="listaMa"
                 key={item}
-                onClick={() => modalAutoModal(item)}
+                onClick={() => modalAuto(item)}
                 onChange={openModalAuto1}>
                 <span className="item">{item}</span>
               </li>
