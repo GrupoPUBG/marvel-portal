@@ -8,7 +8,7 @@ ModalAuto.propTypes = {
   closeModalA: PropTypes.bool
 };
 
-function ModalAuto({ search, modalAuto, closeModalA }) {
+function ModalAuto({ search, modalAuto,  closeModalA }) {
   const [estado1, setestado1] = useState(true);
   const openModalAuto1 = () => {
     if (estado1 == true) {

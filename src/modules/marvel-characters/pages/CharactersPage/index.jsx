@@ -7,7 +7,12 @@ import './styles.scss';
 import ModalAuto from 'src/modules/core/components/molecules/ModalAuto/ModalAuto';
 import { useEffect } from 'react';
 
+const delay = ms => new Promise(
+  resolve => setTimeout(resolve, ms)
+);
+
 export function CharacterPage() {
+
   const [search, setSearch] = useState('');
   const [updated, setUpdated] = useState('');
   const [filterEnter, setFilterEnter] = useState(false);
@@ -18,6 +23,14 @@ export function CharacterPage() {
 
   const [closeModalA, setCloseModalA] = useState(false);
 
+  const handleBlur = async() => {
+    console.log('before');
+
+    await delay(200);
+    setCloseModalA(false);
+
+    console.log('after');
+  };
 
 const modalFcambio = (a) => {
     setModalF(a);
@@ -31,8 +44,8 @@ const searcher = (e) => {
 };
 const modalAuto = (a) => {
   setSearch(a);
+  setCloseModalA(a);
 };
-
 
 const handleKeyDown = (event) => {
   if (event.key === 'Enter') {
@@ -102,7 +115,7 @@ return (
                 value={search}
                 onChange={searcher}
                 onKeyDown={handleKeyDown}
-                // onBlur={ () => setCloseModalA(false)}
+                onBlur={ handleBlur}
                 onClick={ () => setCloseModalA(true)}
                 id="filter"
                 className="mvl-character-gri-input"
